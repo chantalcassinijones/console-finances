@@ -10,9 +10,9 @@
 
 //You will need to track what the total change in Profit/Losses are from month to month and then find the average.
 //(Total/(Number of months - 1))
-//The greatest increase in Profit/Losses (date and amount) over the entire period.
+//The greatest increase in Profit/Losses (date and amount) over the entire period. done
 
-//The greatest decrease in Profit/Losses (date and amount) over the entire period.
+//The greatest decrease in Profit/Losses (date and amount) over the entire period. done
 
 //When you open your code in the browser your resulting analysis should look similar to the following:
 
@@ -124,14 +124,18 @@ var finances = [
 ];
 
 
+//title 
+
 console.log('Financial Analysis');
 console.log('----------------');
+
 //The total number of months included in the dataset
 
 var totalMonths = finances.length;
+
 console.log('Total Months:' + totalMonths);
 
-//The net total amount of Profit/Losses over the entire period.
+//The net total amount of Profit/Losses over the entire period
 
 
 var totalProfit = 0;
@@ -140,5 +144,52 @@ for (var i = 0; i < finances.length; i++) {
   totalProfit += finances[i][1];
   
 }
+
 console.log('Total:'+ '$' + totalProfit);
   
+
+//The average of the changes in Profit/Losses over the entire period.
+
+//You will need to track what the total change in Profit/Losses are from month to month and then find the average.
+//(Total/(Number of months - 1))
+
+//The greatest increase in Profit/Losses (date and amount) over the entire period.
+
+var greatestIncreaseAmount = 0;
+var firstAmount = finances[0][1];
+
+
+for (var i = 1; i < finances.length; i++) {
+  var secondAmount = finances[i][1];
+  var increase = secondAmount - firstAmount;
+
+  if (increase > greatestIncreaseAmount) {
+    greatestIncreaseAmount = increase;
+    var greatestIncreaseDate = finances[i][0];
+  } else {
+   firstAmount = secondAmount;
+  }
+}
+
+console.log('Greatest Increase in Profits/Losses: ' + greatestIncreaseDate + '($' + greatestIncreaseAmount + ')' );
+
+//The greatest decrease in Profit/Losses (date and amount) over the entire period.
+
+var greatestDecreaseAmount = 0;
+var firstAmount = finances[0][1];
+
+
+for (var i = 1; i < finances.length; i++) {
+  var secondAmount = finances[i][1];
+  var decrease = secondAmount - firstAmount;
+
+  if (decrease < greatestDecreaseAmount) {
+    greatestDecreaseAmount = decrease;
+    var greatestDecreaseDate = finances[i][0];
+  } else {
+   firstAmount = secondAmount;
+  }
+}
+
+console.log('Greatest Decrease in Profits/Losses: ' + greatestDecreaseDate + '($' + greatestDecreaseAmount + ')' );
+
