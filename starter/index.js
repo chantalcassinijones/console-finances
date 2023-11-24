@@ -1,39 +1,3 @@
-//You have been given a dataset composed of arrays with two fields, Date and Profit/Losses.
-
-//Your task is to write JavaScript code that analyzes the records to calculate each of the following:
-
-//The total number of months included in the dataset. done.
-
-//The net total amount of Profit/Losses over the entire period. done.
-
-//The average of the changes in Profit/Losses over the entire period.
-
-//You will need to track what the total change in Profit/Losses are from month to month and then find the average.
-//(Total/(Number of months - 1))
-//The greatest increase in Profit/Losses (date and amount) over the entire period. done
-
-//The greatest decrease in Profit/Losses (date and amount) over the entire period. done
-
-//When you open your code in the browser your resulting analysis should look similar to the following:
-
-//Financial Analysis 
-//----------------
-//Total Months: 86
-//Total: $38382578
-//Average Change: -2315.12
-//Greatest Increase in Profits/Losses: Feb-2012 ($1926159)
-//Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)
-//Your final code should print the analysis to the console.
-
-
-
-//How do you only print to the nearest 100th in JavaScript? do we use math.round(x) ?
-
-
-
-
-
-
 var finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
@@ -129,14 +93,17 @@ var finances = [
 console.log('Financial Analysis');
 console.log('----------------');
 
+
+
 //The total number of months included in the dataset
 
 var totalMonths = finances.length;
 
 console.log('Total Months:' + totalMonths);
 
-//The net total amount of Profit/Losses over the entire period
 
+
+//The net total amount of Profit/Losses over the entire period
 
 var totalProfit = 0;
 
@@ -148,12 +115,28 @@ for (var i = 0; i < finances.length; i++) {
 console.log('Total:'+ '$' + totalProfit);
   
 
-//The average of the changes in Profit/Losses over the entire period.
 
-//You will need to track what the total change in Profit/Losses are from month to month and then find the average.
-//(Total/(Number of months - 1))
+// total change in Profit/Losses  from month to month (Month 2 – Month 1) 
 
-//The greatest increase in Profit/Losses (date and amount) over the entire period.
+var totalChange = 0;
+
+for (var i = 1; i < finances.length; i++) {
+  var monthOneAmount = finances[i][1]; //loss/profit for first month
+  var monthTwoAmount = finances[i-1][1]; //loss/profit next month
+   change = monthOneAmount - monthTwoAmount; //change between each month
+   totalChange += change; //add 
+
+}
+
+var average = totalChange / (totalMonths - 1); //  find the average 
+
+console.log( 'Average Change: ' + Math.round(average*100)/100); // and round to the nearest 100th
+
+
+
+
+
+//The greatest increase in Profit/Losses (date and amount) over the entire period
 
 var greatestIncreaseAmount = 0;
 var firstAmount = finances[0][1];
@@ -172,6 +155,7 @@ for (var i = 1; i < finances.length; i++) {
 }
 
 console.log('Greatest Increase in Profits/Losses: ' + greatestIncreaseDate + '($' + greatestIncreaseAmount + ')' );
+
 
 //The greatest decrease in Profit/Losses (date and amount) over the entire period.
 
