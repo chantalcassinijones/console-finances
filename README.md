@@ -34,7 +34,7 @@ I read the following documentation to help me complete this challenge:
 
 [Math.round()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round)
 
-[array](ttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
 [if...else](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 
