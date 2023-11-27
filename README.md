@@ -15,7 +15,7 @@ N/A
 
 ## Usage
 
- All you need to do is open [this page](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide) in your browser. Right-click your mouse anywhere on the page and click inspect. Open the console and you should see the financial analysis like in this screenshot
+ All you need to do is open [this page](https://chantalcassinijones.github.io/console-finances/) in your browser. Right-click your mouse anywhere on the page and click inspect. Open the console and you should see the financial analysis like in this screenshot
 
 md
     ![Screenshot 1](./starter/consolelogscreenshot.png)
