@@ -123,7 +123,7 @@ var totalChange = 0;
 for (var i = 1; i < finances.length; i++) {
   var monthOneAmount = finances[i][1]; //loss/profit for first month
   var monthTwoAmount = finances[i-1][1]; //loss/profit next month
-   change = monthOneAmount - monthTwoAmount; //change between each month
+   change = monthOneAmount - monthTwoAmount; //difference between each month
    totalChange += change; //add 
 
 }
@@ -135,45 +135,31 @@ console.log( 'Average Change: ' + Math.round(average*100)/100); // and round to 
 
 
 
-
-//The greatest increase in Profit/Losses (date and amount) over the entire period
+//The greatest increase and the greatest decrease in Profit/Losses (date and amount) over the entire period
 
 var greatestIncreaseAmount = 0;
-var firstAmount = finances[0][1];
-
-
-for (var i = 1; i < finances.length; i++) {
-  var secondAmount = finances[i][1];
-  var increase = secondAmount - firstAmount;
-
-  if (increase > greatestIncreaseAmount) {
-    greatestIncreaseAmount = increase;
-    var greatestIncreaseDate = finances[i][0];
-  } else {
-   firstAmount = secondAmount;
-  }
-}
-
-console.log('Greatest Increase in Profits/Losses: ' + greatestIncreaseDate + '($' + greatestIncreaseAmount + ')' );
-
-
-//The greatest decrease in Profit/Losses (date and amount) over the entire period.
-
 var greatestDecreaseAmount = 0;
 var firstAmount = finances[0][1];
 
 
 for (var i = 1; i < finances.length; i++) {
-  var secondAmount = finances[i][1];
-  var decrease = secondAmount - firstAmount;
+  var secondAmount = finances[i][1];   //iterate change between months 
+  var increase = secondAmount - firstAmount; //define what increase is
+  var decrease = secondAmount - firstAmount; // define what decrease is
 
+  if (increase > greatestIncreaseAmount) {
+    greatestIncreaseAmount = increase;
+    var greatestIncreaseDate = finances[i][0]; // if the difference is greater update the value
+  }
   if (decrease < greatestDecreaseAmount) {
     greatestDecreaseAmount = decrease;
-    var greatestDecreaseDate = finances[i][0];
+    var greatestDecreaseDate = finances[i][0]; // if the difference is less than update value
   } else {
-   firstAmount = secondAmount;
+   firstAmount = secondAmount; //update value
   }
 }
 
+console.log('Greatest Increase in Profits/Losses: ' + greatestIncreaseDate + '($' + greatestIncreaseAmount + ')' );
 console.log('Greatest Decrease in Profits/Losses: ' + greatestDecreaseDate + '($' + greatestDecreaseAmount + ')' );
+
 
